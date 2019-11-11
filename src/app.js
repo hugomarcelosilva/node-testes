@@ -1,4 +1,3 @@
-import './bootstrap';
 import Youch from 'youch';
 import express from 'express';
 import 'express-async-errors';
@@ -6,6 +5,10 @@ import 'express-async-errors';
 import routes from './routes';
 
 import './database';
+
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+});
 
 class App {
   constructor() {
